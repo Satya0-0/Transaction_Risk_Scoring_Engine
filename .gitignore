@@ -1,0 +1,27 @@
+# Data
+data/
+
+# Cache and temporary files
+.vscode/
+__pycache__/
+*.pyc
+.idea/
+.DS_Store
+*.log
+
+# Environments
+.venv/
+venv/
+env/
+ENV/
+
+# Models and Binaries
+models/
+*.joblib
+*.pkl
+
+# Notebook Checkpoints (Add this!)
+.ipynb_checkpoints/
+
+# OS generated files
+Thumbs.db
