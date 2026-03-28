@@ -1,5 +1,5 @@
 import streamlit as st
-from sample import main_2
+from src.sample import main_2
 from src.util.random_test_record import random_test_record
 import time
 
@@ -30,7 +30,7 @@ with st.sidebar:
     
     # Selection Controls
     st.markdown("### ⚙️ Selection Controls")
-    row_input = st.slider("Select Transaction Index", 1, 1000, 79)
+    row_input = st.slider("Select Transaction Index", 1, 1000, 80)
     
     if st.button('🎲 Randomize Transaction', use_container_width=True):
         randomize = True
