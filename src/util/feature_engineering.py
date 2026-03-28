@@ -138,11 +138,6 @@ class TypeConverter(BaseEstimator, TransformerMixin):
         # Single rows often default to 'object' dtype; this forces them to numeric
         numeric_cols = [c for c in X.columns if c not in self.cat_cols]
         for col in numeric_cols:
-            X[col] = pd.to_numeric(X[col], errors='coerce').astype(float)
-        
-        print("\n\n")
-        for c in X.columns:
-            print(c," : ", type(X[c].iloc[0]))
-        print("Data types converted successfully!")
-        print("\n\n")
+            X[col] = pd.to_numeric(X[col], errors='coerce').astype(float)     
+        print("Data types from actual DataFrame converted into required types successfully!")
         return X

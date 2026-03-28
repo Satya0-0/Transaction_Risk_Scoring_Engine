@@ -16,7 +16,7 @@ env/
 ENV/
 
 # Models and Binaries
-models/
+# models/ --> Included since the size is manageable and it's part of the project structure
 *.joblib
 *.pkl
 

@@ -9,7 +9,8 @@ CONFIG = {
                 'train_txn_data': os.path.join(BASE_DIR, 'data', 'raw', 'train_transaction.csv'),
                 'train_idnty_data': os.path.join(BASE_DIR, 'data', 'raw', 'train_identity.csv'),
                 'test_txn_data': os.path.join(BASE_DIR, 'data', 'raw', 'test_transaction.csv'),
-                'test_idnty_data': os.path.join(BASE_DIR, 'data', 'raw', 'test_identity.csv')
+                'test_idnty_data': os.path.join(BASE_DIR, 'data', 'raw', 'test_identity.csv'),
+                'sample_data': os.path.join(BASE_DIR, 'sample_data', 'sample_data.csv')
             },
             'split_point': 0.8,
             'lgb_params' : {

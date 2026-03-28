@@ -70,3 +70,14 @@ def get_testing_data() -> pd.DataFrame:
     final_df = merge_df(txn, idnty)
     
     return final_df
+
+def get_sample_data() -> pd.DataFrame:
+    """Loads and merges the testing transaction and identity data.
+    Returns:
+        A merged dataframe containing both transaction and identity data.
+    """
+    sample_path = get_config("data.sample_data")
+    
+    sample_df = load_data(sample_path)
+
+    return sample_df
