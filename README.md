@@ -48,11 +48,15 @@ FDS/
 │   │   ├── test_transaction.csv
 │   │   └── test_identity.csv
 │   └── processed/                 # Generated processed data
+├── sample_data/
+│   ├── sample_data.csv            # 1,000 sampled records for memory-efficient demo
 ├── models/
-│   └── lgbm_pipeline_v1.joblib   # Serialized model pipeline
+│   └── lgbm_pipeline_v1.joblib    # Serialized model pipeline
 ├── notebooks/                     # Exploratory analysis notebooks
+├── app.py                         # Entry-point with Streamlit Interface
 ├── src/
-│   ├── app.py                     # Inference interface
+│   ├── sample.py                  # Inference on 1000 records used in demo
+│   ├── test.py                    # Inference for all the test records
 │   ├── train.py                   # Model training orchestration
 │   └── util/
 │       ├── buckets_validation.py  # Pooling logic and validation
@@ -63,6 +67,9 @@ FDS/
 │       ├── model_save.py          # Model serialization
 │       ├── random_test_record.py  # Test record sampling
 │       └── reproducibility.py     # Seed management
+├── Dockerfile                     # Instructions to create docker image
+├── .dockerignore                  # exlcusions made while creating Docker Image
+├── .gitignore                     
 └── README.md
 ```
 
@@ -94,7 +101,7 @@ source .venv/bin/activate
 
 3. Install required dependencies:
 ```bash
-pip install pandas numpy scikit-learn lightgbm joblib
+pip install pandas numpy scikit-learn lightgbm joblib streamlit
 ```
 
 ## Usage
@@ -137,6 +144,14 @@ Testing for record N of the test set
   "Pool": "P0"
 }
 ```
+### Running the Streamlit UI (Demo-Predictions)
+To launch the interactive dashboard and run assessments on the 1,000-record sample dataset:
+
+```bash
+streamlit run app.py
+```
+
+Sample output: *refer streamlit app URL mentioned above*
 
 ## Configuration
 
@@ -277,6 +292,23 @@ The LightGBM implementation uses:
 - **Class Imbalance**: Handled via `is_unbalance=True`
 - **Ensemble Size**: 100 boosting iterations
 - **Leaf Constraints**: Minimum 100 samples per leaf for generalization
+
+### Docker Deployment
+The application is containerized for consistent deployment across environments.
+
+Build the image:
+
+```bash
+docker build -t risk_engine .
+```
+
+Run the container:
+
+```bash
+docker run -p 8501:8501 risk_engine
+```
+
+The app will be accessible at http://localhost:8501.
 
 ---
 
