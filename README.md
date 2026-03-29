@@ -1,6 +1,13 @@
 # Transaction Risk Scoring Engine
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://risk-engine.streamlit.app/)
+
 A machine learning-based transaction risk assessment system that leverages LightGBM to calculate fraud probability scores and expected values, enabling strategic transaction pooling for optimal fraud prevention resource allocation.
+
+---
+## 🔗 [Launch Live Interactive Demo](https://risk-engine.streamlit.app/)
+---
+
 
 ## Table of Contents
 
